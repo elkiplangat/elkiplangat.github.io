@@ -4,25 +4,31 @@
   
   <url>
     <loc>http://elkiplangat.me/</loc>
-    <lastmod>2020-08-16T13:35:40+03:00</lastmod>
+    <lastmod>2020-08-16T14:31:05+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://elkiplangat.me/posts/my-first-post/</loc>
-    <lastmod>2020-08-16T13:35:40+03:00</lastmod>
+    <loc>http://elkiplangat.me/tags/kotlin/</loc>
+    <lastmod>2020-08-16T14:31:05+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://elkiplangat.me/posts/</loc>
-    <lastmod>2020-08-16T13:35:40+03:00</lastmod>
+    <loc>http://elkiplangat.me/post/kotlin-null-safety/</loc>
+    <lastmod>2020-08-16T14:31:05+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://elkiplangat.me/categories/</loc>
+    <loc>http://elkiplangat.me/post/</loc>
+    <lastmod>2020-08-16T14:31:05+03:00</lastmod>
   </url>
   
   <url>
     <loc>http://elkiplangat.me/tags/</loc>
+    <lastmod>2020-08-16T14:31:05+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://elkiplangat.me/categories/</loc>
   </url>
   
 </urlset>
