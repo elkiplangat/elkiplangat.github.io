@@ -20,7 +20,7 @@
       <description>&lt;p&gt;Null Pointer Exceptions are any JVM programmer&amp;rsquo;s enemy number one.
 an NPE can occur due to a bad initialization or making an explicit call to &lt;code&gt;throw NullPointerException()&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;In Java, dealing with NPEs is not as easy or as straightforward as it is in Kotlin.
-Kotlin has some great features that help alleviate the stress that comes with NPEs, let&amp;rsquo;s talk about them!&lt;/p&gt;</description>
+Kotlin has some great features that help alleviate the stress that comes with NPEs, let&amp;rsquo;s talk about them 😎🙋&lt;/p&gt;</description>
     </item>
     
   </channel>

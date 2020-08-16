@@ -32,7 +32,7 @@
             <p>Null Pointer Exceptions are any JVM programmer&rsquo;s enemy number one.
 an NPE can occur due to a bad initialization or making an explicit call to <code>throw NullPointerException()</code></p>
 <p>In Java, dealing with NPEs is not as easy or as straightforward as it is in Kotlin.
-Kotlin has some great features that help alleviate the stress that comes with NPEs, let&rsquo;s talk about them!</p>
+Kotlin has some great features that help alleviate the stress that comes with NPEs, let&rsquo;s talk about them 😎🙋</p>
 <h2 id="kotlin-nullable-types">Kotlin Nullable Types</h2>
 <p>Kotlin has datatypes designed specifically for nullability. These are types that can hold null references.
 To declare a nullable type, you add a question mark to the type during declaration:</p>
@@ -57,9 +57,29 @@ using our previous example, lets say we need to access the firstName variable, t
    return 'Empty Name'
 }
 </code></pre><p>Using the Elvis operator, all we have to do is call <code>firstName?:&quot;Empty Name&quot; </code>
-The Elvis operator can be used in combination with the safe call operator, so that if a variable is null, it returns a default value:
-<code> </code></p>
-<p><img src="/img/npe.jpg" alt=""></p>
+The Elvis operator can be used in combination with the safe call operator, so that if a variable is null, it returns a default value:</p>
+<pre><code>var nameLength = firstName?.length ?: 0 //
+</code></pre><h2 id="let-function-let">let Function (.let{})</h2>
+<p>The let function is another safe way to access a variable. To use it, you first have to make a safe call to make sure the object is not null then call the let function.
+The let function takes a lambda as an argument, its parameter is the object we&rsquo;re calling it with.
+let&rsquo;s use our firstName example again. The not so Kotlin way to access it would be:</p>
+<pre><code>if(firstName!=null){
+   print(&quot;First Name: ${firstName}&quot;
+}
+</code></pre><p>The &lsquo;Kotlin Chad&rsquo; way to access it using the let function is:</p>
+<pre><code>firstName?.let{
+print(&quot;FirstName: ${it}&quot;)
+}
+
+</code></pre><h2 id="lateinit-modifier">Lateinit Modifier</h2>
+<p>As its name suggests, the lateinit keyword is used with non-null objects that cannot be initialized at declaration time(Think of some of Android&rsquo;s object properties that are initialized using special methods like <code>onCreate() </code> or situations where you are using Dependency Injection)
+In Kotlin, non-null properties must be initialized with non-null values at declaration time. The lateinit modifier allows us to get away with not initializing these properties.
+Accessing a lateinit property that has not been initialized however will throw an exception <code>UninitializedPropertyAccessException</code> so you should check whether the property has been initialized first before trying to access it using <code> propertyName.isInitialized</code></p>
+<pre><code>if(myLateInitProperty.isInitialized){
+    do something
+}
+
+</code></pre><p><img src="/img/npe.jpg" alt=""></p>
         </article>
         
             <div class="tags">
@@ -75,7 +95,7 @@ The Elvis operator can be used in combination with the safe call operator, so th
     </main>
     <footer>
   <div class="content-container">
-    <div class="content">Hello, This is Kiplangat and this is my personal website. I am a Software Developer Currently working for Workfleek.
+    <div class="content">Hello, This is Kiplangat and this is my personal website. I am a Software Developer Currently working for <a href="https://www.workfleek.co.ke/" target="_blank">Workfleek</a>.
 
 
   <p class="horizontal-links"></p>
