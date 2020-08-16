@@ -13,20 +13,14 @@
     
     <item>
       <title>Kotlin Null Safety; A guide to avoiding NPEs</title>
-      <link>http://elkiplangat.me/post/kotlin-null-safety/</link>
+      <link>http://elkiplangat.me/posts/kotlin-null-safety/</link>
       <pubDate>Sun, 16 Aug 2020 14:31:05 +0300</pubDate>
       
-      <guid>http://elkiplangat.me/post/kotlin-null-safety/</guid>
+      <guid>http://elkiplangat.me/posts/kotlin-null-safety/</guid>
       <description>&lt;p&gt;Null Pointer Exceptions are any JVM programmer&amp;rsquo;s enemy number one.
 an NPE can occur due to a bad initialization or making an explicit call to &lt;code&gt;throw NullPointerException()&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;In Java, dealing with NPEs is not as easy or as straightforward as it is in Kotlin.
-Kotlin has some great features that help alleviate the stress that comes with NPEs, let&amp;rsquo;s talk about them!&lt;/p&gt;
-&lt;figure&gt;
-    &lt;img src=&#34;http://elkiplangat.me/images/npe.jpg&#34;
-         alt=&#34;Image caption&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Image caption&lt;/p&gt;
-        &lt;/figcaption&gt;
-&lt;/figure&gt;</description>
+Kotlin has some great features that help alleviate the stress that comes with NPEs, let&amp;rsquo;s talk about them!&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kotlin Null Safety; A guide to avoiding NPEs · Kiplangat Erick</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+
+
+<link rel="shortcut icon" href="/icons/favicon.png">
+
+
+<body>
+    <header><h2>
+  
+    <a href="http://elkiplangat.me/">‹ Kiplangat Erick</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+        <div class="title-group">
+            <div class="title">
+                <h1>Kotlin Null Safety; A guide to avoiding NPEs</h1>
+            </div>
+            <div class="date"><h5>Aug 16, 2020</h5></div>
+        </div>
+        <article class="content">
+            <p>Null Pointer Exceptions are any JVM programmer&rsquo;s enemy number one.
+an NPE can occur due to a bad initialization or making an explicit call to <code>throw NullPointerException()</code></p>
+<p>In Java, dealing with NPEs is not as easy or as straightforward as it is in Kotlin.
+Kotlin has some great features that help alleviate the stress that comes with NPEs, let&rsquo;s talk about them!</p>
+<h2 id="kotlin-nullable-types">Kotlin Nullable Types</h2>
+<p>Kotlin has datatypes designed specifically for nullability. These are types that can hold null references.
+To declare a nullable type, you add a question mark to the type during declaration:</p>
+<pre><code>var myNullableString:String? = null
+var myNullableInt:Int? = null
+var myNullableLong:Long? = null
+</code></pre><h2 id="safe-call-operator">Safe Call Operator(?.)</h2>
+<p>The safe call operator is used to access nullable variables safely.
+say we have a nullable String called <code>firstName</code> and you want to get its length property. The verbose way to check whether it is null would be:</p>
+<pre><code>if(firstName!=null){
+   return firstName.length
+}else{
+   return null
+}
+</code></pre><p>Using the Safe Call operator, all we have to do is call <code>firstName?.length </code></p>
+<h2 id="elvis-operator">Elvis Operator(?:)</h2>
+<p>The Elvis operator is used to provide a default value in case an object is null.
+using our previous example, lets say we need to access the firstName variable, the verbose way would be to check whether it is not null then return its value or return the default value if it is null:</p>
+<pre><code>if(firstName!=null){
+   return firstName
+}else{
+   return 'Empty Name'
+}
+</code></pre><p>Using the Elvis operator, all we have to do is call <code>firstName?:&quot;Empty Name&quot; </code>
+The Elvis operator can be used in combination with the safe call operator, so that if a variable is null, it returns a default value:
+<code> </code></p>
+<p><img src="/img/npe.jpg" alt=""></p>
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    <a href="/tags/kotlin/">Kotlin</a>
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">Hello, This is Kiplangat and this is my personal website. I am a Software Developer Currently working for Workfleek.
+
+
+  <p class="horizontal-links"></p>
+
+  <p class="horizontal-links"><a href="/contact"
+       
+        class="email-hook" id="about-email" title="Click to show email" 
+      >Email</a><a href="https://github.com/elkiplangat"
+        target="_blank" 
+       
+      >Github</a><a href="www.linkedin.com/in/kiplangat-erick"
+        target="_blank" 
+       
+      >Linkedin</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("ZWxraXBsYW5nYXRAZ21haWwuY29t");
+    </script>
+    <script src="/js/rocinante.min.js"></script>
+  </body>
+</html>

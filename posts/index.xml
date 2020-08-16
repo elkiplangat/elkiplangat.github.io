@@ -6,18 +6,21 @@
     <description>Recent content in Posts on Kiplangat Erick</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2020 13:35:40 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2020 14:31:05 +0300</lastBuildDate>
     
 	<atom:link href="http://elkiplangat.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>My First Post</title>
-      <link>http://elkiplangat.me/posts/my-first-post/</link>
-      <pubDate>Sun, 16 Aug 2020 13:35:40 +0300</pubDate>
+      <title>Kotlin Null Safety; A guide to avoiding NPEs</title>
+      <link>http://elkiplangat.me/posts/kotlin-null-safety/</link>
+      <pubDate>Sun, 16 Aug 2020 14:31:05 +0300</pubDate>
       
-      <guid>http://elkiplangat.me/posts/my-first-post/</guid>
-      <description></description>
+      <guid>http://elkiplangat.me/posts/kotlin-null-safety/</guid>
+      <description>&lt;p&gt;Null Pointer Exceptions are any JVM programmer&amp;rsquo;s enemy number one.
+an NPE can occur due to a bad initialization or making an explicit call to &lt;code&gt;throw NullPointerException()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In Java, dealing with NPEs is not as easy or as straightforward as it is in Kotlin.
+Kotlin has some great features that help alleviate the stress that comes with NPEs, let&amp;rsquo;s talk about them!&lt;/p&gt;</description>
     </item>
     
   </channel>
