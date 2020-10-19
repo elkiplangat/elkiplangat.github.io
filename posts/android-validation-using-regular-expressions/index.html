@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Android Input Validation Using Regular Expressions · Kiplangat Erick</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+
+
+<link rel="shortcut icon" href="/icons/favicon.png">
+
+
+<body>
+    <header><h2>
+  
+    <a href="http://elkiplangat.me/">‹ Kiplangat Erick</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+        <div class="title-group">
+            <div class="title">
+                <h1>Android Input Validation Using Regular Expressions</h1>
+            </div>
+            <div class="date"><h5>Oct 19, 2020</h5></div>
+        </div>
+        <article class="content">
+            <p>A regular expression is a string containing a combination of normal characters and special metacharacters or sequences.<br>
+They are used to search through, manipulate, edit and filter text. We are going to use it for pattern matching on the client side in android using kotlin.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Going forward I am going to assume you know how to:</p>
+<ol>
+<li>Setup a basic android project</li>
+<li>Add google&rsquo;s material design dependency</li>
+<li>Create basic text input layouts for email, username and password.
+Here&rsquo;s mine: <figure>
+    <img src="/img/signup_screen.png"
+         alt="Sign Up Screen"/> <figcaption>
+            <p>Sign Up Screen</p>
+        </figcaption>
+</figure>
+</li>
+</ol>
+<p>You should also have the  <code>app:errorEnabled=&quot;true&quot; </code> attribute added to all the input fields as that&rsquo;s what this post (and validation, really) is all about.
+I have used data binding too so expect no calls to <code>findViewById()</code></p>
+<h3 id="step-1---create-regex-patterns">Step 1 - Create Regex patterns</h3>
+<p>Creating a regex pattern in kotlin is not as difficult as you would think, there are two relatively easy ways we can do it:</p>
+<ol>
+<li>Using the Regex class constructor:<br>
+<code>val digitPattern = Regex(&quot;^\\d{1,3}$&quot;) //creates a regex pattern that matches any digit from 0...999</code></li>
+<li>Using the String.toRegex() method call:
+<pre><code class="language-val" data-lang="val">    val regexp = digitPattern.toRegex()
+
+</code></pre></li>
+</ol>
+<p>You can look at the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/" target="_blank">documentation</a> for other ways to create regular expressions in kotlin, or if you&rsquo;re coming from java, you can use the <code>Pattern</code> class.</p>
+<p>As you can see from the image above, we have three input fields, one for email, another for username and another for a password.</p>
+<h3 id="email-regex-pattern">email regex pattern</h3>
+<p>Here is an email regex pattern I stole from <a href="https://www.oreilly.com/library/view/regular-expression-pocket/9780596514273/" target="_blank">this regexp cookbook</a>:<br>
+<code>val emailPattern = &quot;^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@&quot; + &quot;[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$&quot; </code></p>
+<h3 id="username-regex-pattern">username regex pattern</h3>
+<p>Depending on your backend and your app specific needs, you might allow users to have digits and special characters in their usernames so let&rsquo;s not dwell on that.
+Here&rsquo;s a regex pattern that asserts that the given String is not empty:<br>
+<code>val userNamePattern = Regex(&quot;.+.&quot;)</code></p>
+<blockquote>
+<p>We could have just used <code>username.isNotEmpty()</code> or any of the other syntactic sugar kotlin has to offer but this post is about regular expressions, so lets stick with it. 👻</p>
+</blockquote>
+<h3 id="password-regex-pattern">password regex pattern</h3>
+<p>Depending on your backend and security needs and considerations again, you might have precise specifications of an ideal password.
+Here&rsquo;s a password regex pattern I got from <a href="https://stackoverflow.com/questions/3802192/regexp-java-for-password-validation" target="_blank">this stackoverflow post</a>:<br>
+<code>val passwordPattern = Regex(&quot;^(?=.*[@#\$%^&amp;+=])(?=\\S+\$).{8,}$&quot;)</code>
+it asserts that the input length is &gt; 8, there&rsquo;s at least one special character, and there&rsquo;s no whitespace.</p>
+<h2 id="step-2---create-listeners-for-textinput-fields">Step 2 - Create listeners for TextInput fields</h2>
+<p>In this step we are going to create textchange listeners for our text fields.<br>
+To do so, you call your textfield View object and call its <code>addTextChangedListener()</code> method.<br>
+Since we have three input fields, this is how it is going to look: <figure>
+    <img src="/img/textChangeListener.png"
+         alt="Text Changed Listener"/> <figcaption>
+            <p>Text Changed Listener</p>
+        </figcaption>
+</figure>
+<br>
+The TextWatcher Interface has three important methods, we are only interested in the afterTextChanged method. This is where we are going to validate the user&rsquo;s input.</p>
+<ol>
+<li>
+<p>create a variable to hold the editable that the afterTextChanged method recieves.
+<code> val userEmail:String = s</code></p>
+</li>
+<li>
+<p>cast it to a String using the <code>toString()</code> method:<br>
+<code> val userEmail:String = s.toString()</code></p>
+</li>
+<li>
+<p>perform the check:</p>
+<pre><code>if (!userEmail.matches(emailRegexPattern)) {
+    fragmentSignupBinding.textInputLayoutEmailSignup.isErrorEnabled = true
+    fragmentSignupBinding.textInputLayoutEmailSignup.error =
+            &quot;please provide a valid email&quot;} 
+</code></pre></li>
+</ol>
+<p>This code block shows the user an error if the email fails to satisfy our regex&rsquo;s requirements.
+<figure>
+    <img src="/img/email_error.png"
+         alt="error label"/> <figcaption>
+            <p>error label</p>
+        </figcaption>
+</figure>
+</p>
+<ol start="4">
+<li>remove the error label:<br>
+To do away with the error, add an else block:<br>
+<code>else { fragmentSignupBinding.textInputLayoutEmailSignup.isErrorEnabled = false }</code></li>
+</ol>
+<h2 id="step-3---rinse-and-repeat">Step 3 - Rinse and repeat</h2>
+<p>Copy the above code for any other input fields taking care to use the correct regexp pattern for matching.</p>
+<figure>
+    <img src="/img/password.png"
+         alt="password error"/> <figcaption>
+            <p>password error</p>
+        </figcaption>
+</figure>
+
+<p>Thanks for reading!! Here&rsquo;s an obligatory meme:
+<figure>
+    <img src="/img/regex_meme.jpeg"/> 
+</figure>
+</p>
+
+        </article>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">Hello, this is Kiplangat and this is my personal website. I am a Software Developer currently working for <a href="workfleek.co.ke">Workfleek Technologies</a>.
+
+
+  <p class="horizontal-links"><a href="/contact"
+       
+        class="email-hook" id="about-email" title="Click to show email" 
+      >Email</a><a href="https://github.com/elkiplangat"
+        target="_blank" 
+       
+      >Github</a><a href="https://www.linkedin.com/in/kiplangat-erick"
+        target="_blank" 
+       
+      >LinkedIn</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("ZWxraXBsYW5nYXRAZ21haWwuY29t");
+    </script>
+    <script src="/js/rocinante.min.js"></script>
+  </body>
+</html>

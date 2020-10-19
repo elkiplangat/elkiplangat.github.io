@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "rocinante.css",
-	"sourceRoot": "/home/kiplangat/Changey-Projects/elkiplangat.me",
+	"sourceRoot": "/home/kip/Documents/Things/Projects/personal website/tempsite/elkiplangat.me",
 	"sources": [
 		"themes/rocinante/assets/css/rocinante.scss",
 		"themes/rocinante/assets/css/includes.scss"

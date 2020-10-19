@@ -6,21 +6,32 @@
     <description>Recent content on Kiplangat Erick</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2020 14:31:05 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2020 11:47:36 +0300</lastBuildDate>
     
 	<atom:link href="http://elkiplangat.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Android Input Validation Using Regular Expressions</title>
+      <link>http://elkiplangat.me/posts/android-validation-using-regular-expressions/</link>
+      <pubDate>Mon, 19 Oct 2020 11:47:36 +0300</pubDate>
+      
+      <guid>http://elkiplangat.me/posts/android-validation-using-regular-expressions/</guid>
+      <description>A regular expression is a string containing a combination of normal characters and special metacharacters or sequences.
+They are used to search through, manipulate, edit and filter text. We are going to use it for pattern matching on the client side in android using kotlin.
+Prerequisites Going forward I am going to assume you know how to:
+ Setup a basic android project Add google&amp;rsquo;s material design dependency Create basic text input layouts for email, username and password.</description>
+    </item>
+    
+    <item>
       <title>Kotlin Null Safety; A guide to avoiding NPEs</title>
       <link>http://elkiplangat.me/posts/kotlin-null-safety/</link>
-      <pubDate>Sun, 16 Aug 2020 14:31:05 +0300</pubDate>
+      <pubDate>Wed, 12 Aug 2020 12:33:29 +0300</pubDate>
       
       <guid>http://elkiplangat.me/posts/kotlin-null-safety/</guid>
-      <description>&lt;p&gt;Null Pointer Exceptions are any JVM programmer&amp;rsquo;s enemy number one.
-an NPE can occur due to a bad initialization or making an explicit call to &lt;code&gt;throw NullPointerException()&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;In Java, dealing with NPEs is not as easy or as straightforward as it is in Kotlin.
-Kotlin has some great features that help alleviate the stress that comes with NPEs, let&amp;rsquo;s talk about them 😎🙋&lt;/p&gt;</description>
+      <description>Null Pointer Exceptions are any JVM programmer’s enemy number one. an NPE can occur due to a bad initialization or making an explicit call to throw NullPointerException()
+In Java, dealing with NPEs is not as easy or as straightforward as it is in Kotlin. Kotlin has some great features that help alleviate the stress that comes with NPEs, let’s talk about them 😎🙋
+Kotlin Nullable Types Kotlin has datatypes designed specifically for nullability.</description>
     </item>
     
   </channel>
